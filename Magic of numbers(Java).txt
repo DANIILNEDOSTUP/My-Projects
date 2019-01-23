@@ -1,0 +1,15 @@
+//You can change the number, but... the answer will not change :)
+
+public class Magic {
+    
+public static void main(String[] args){
+    int myNumber = 2464; //original number
+    int stepOne = 10 * 10;
+    int stepTwo = stepOne + 10;
+    int stepThree = stepTwo / 10;
+    int stepFour = stepThree + 17;
+    int stepFive = stepFour - 10;
+    int stepSix = stepFive / 6;
+        System.out.println(stepSix);
+}
+    }
