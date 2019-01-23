@@ -1,0 +1,97 @@
+/*Calculate:
+1) The number of elements in the array is greater than the specified.
+2) The product of the elements of the array, located after the maximum modulo element.
+*/
+
+#include <iostream>
+using namespace std;
+
+void func2(int mas[], int N)
+{
+	cout << "Vvedi masiv s " << N << " elementov" << endl;
+	for (int i = 0; i < N; i++)
+	{
+		cin >> mas[i];
+	}
+
+};
+
+int func3(int mas[], int N, int chislo)
+{
+	int k = 0;
+
+	for (int i = 0; i < N; i++)
+	{
+		if (mas[i] > chislo)
+		{
+			k++;
+		}
+	}
+
+	return k;
+};
+
+int func4(int mas[], int N) {
+
+	int imax = 0;
+
+	for (int i = 0; i < N; i++)
+		if (mas[i] > mas[imax])
+		{
+			imax = i;
+		}
+	return imax;
+};
+
+int func5(int imax, int N, int mas[])
+{
+
+	int p = 1;
+
+	for (imax; imax < N - 1; imax++)
+	{
+		p = p * mas[imax + 1];
+	}
+
+	return p;
+};
+
+int main()
+{
+	int N = 0;
+	cout << "Enter arrey size:" << endl;
+	cin >> N;
+	int *mas = new int[N];
+
+	func2(mas, N);
+
+	cout << "Your arrey:" << endl;
+
+	for (int i = 0; i < N; i++)
+	{
+		cout << mas[i] << " ";
+	}
+	cout << endl;
+
+	int chislo;
+
+	cout << "Vvedi chislo" << endl;
+	cin >> chislo;
+
+
+	int k = func3(mas, N, chislo);
+
+	cout << "Kol-vo elementov bol`she zadanogo = " << k << endl;
+
+	int imax = func4(mas, N);
+
+	cout << "vash imax = " << mas[imax] << endl;
+
+	int p = func5(imax, N, mas);
+
+	cout << "Dobutok elementov posle MAX chisla v massive = " << p << endl;
+
+	delete[] mas;
+	cin.get();
+}
+
