@@ -23,8 +23,6 @@ cout << "  4) The Bold\n\n";
   
 cin >> answer1;
   
- 
-  
   if (answer1 == 1) {
 
   hufflepuff++;
