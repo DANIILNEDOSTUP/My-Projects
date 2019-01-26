@@ -3,49 +3,49 @@
 #include<iostream>
 using namespace std;
 
-int func10(int  n, int *mas)
+int func10(int  n, int mas[])
 {
-  int imax = 0;
-  for (int i = 0; i < n; i++)
-  {
-    if (mas[i] > mas[imax])
-      imax = i;
-  }
-  return imax;
+	int imax = 0;
+	for (int i = 0; i < n; i++)
+	{
+		if (mas[i] > mas[imax])
+			imax = i;
+	}
+	return imax;
 
 };
-void func12(int  n, int *arr, int imax)
+
+void func12(int  n, int arr[], int imax)
 {
-  for (int i = 0; i < imax - 1; i++)
-    for (int j = 0; j < imax - i - 1; j++)
-      if (arr[j] > arr[j + 1])
-      {
-        int c = arr[j + 1];
-        arr[j + 1] = arr[j];
-        arr[j] = c;
-      }
+	for (int i = 0; i < imax - 1; i++)
+		for (int j = 0; j < imax - i - 1; j++)
+			if (arr[j] > arr[j + 1])
+			{
+				int c = arr[j + 1];
+				arr[j + 1] = arr[j];
+				arr[j] = c;
+			}
 };
 
 int main()
 {
-  int n;
-  cout << "Enter the array's size: ";
-  cin >> n;
-  int *mas;
-  mas = new int[n];
-  for (int i = 0; i < n; i++)
-  {
-    cin >> mas[i];
-  };
+	int n;
+	cout << "Enter the array's size: ";
+	cin >> n;
+	int *mas;
+	mas = new int[n];
+	for (int i = 0; i < n; i++)
+	{
+		cin >> mas[i];
+	};
 
-  int imax = func10(n, mas);
-  func12(n, mas, imax);
-  cout << endl;
-  for (int i = 0; i < n; i++)
-  {
-    cout << mas[i] << " ";
-  };
-  delete[]mas;
-  system("pause");
-  return 0;
+	int imax = func10(n, mas);
+	func12(n, mas, imax);
+	cout << endl;
+	for (int i = 0; i < n; i++)
+	{
+		cout << mas[i] << " ";
+	};
+	delete[]mas;
+	cin.get();
 }
