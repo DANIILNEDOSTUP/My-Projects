@@ -1,0 +1,63 @@
+#include <iostream>
+using namespace std;
+
+class Drib {
+private:
+	int chislitel;
+	int znum;
+public:
+	Drib(int chislitel, int znum);
+	Drib();	
+	Drib operator*(const Drib x) const;
+	bool operator==(const Drib x) const;
+
+	void Print();
+};
+__________________________________________________________
+Drib::Drib()
+{
+	chislitel = 0;
+	znum = 0;
+}
+
+Drib::Drib(int zn, int chis)
+{
+	chislitel = chis;
+	znum = zn;
+}
+
+Drib Drib::operator*(const Drib x) const
+{
+	Drib c;
+	c.chislitel = x.chislitel * chislitel;
+	c.znum = znum * x.znum;
+	return c;
+}
+bool Drib::operator==(const Drib x) const
+{
+	if (chislitel * x.znum == znum * x.chislitel)
+		return true;
+	else
+		return false;
+}
+
+void Drib::Print() {
+	cout << chislitel << "/" << znum << endl;
+}
+__________________________________________________________
+int main()
+{
+	Drib a(3, 5), b(6, 3), c;
+	c = a * b;
+	c.Print();
+	if (a == b) {
+		cout << "Fractions are equal" << endl;
+	}
+	else
+	{
+		cout << "Fractions are unequal" << endl;
+
+	}
+	return 0;
+}
+ 
