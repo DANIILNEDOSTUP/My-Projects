@@ -1,0 +1,53 @@
+#include <iostream>
+using namespace std;
+
+class Rational {
+private:
+	int chislitel;
+	int znum;
+public:
+	Rational(int chislitel, int znum);
+	Rational();
+	bool operator==(const Rational& x) const;
+
+	void Print();
+};
+
+Rational::Rational()
+{
+	chislitel = 0;
+	znum = 0;
+}
+
+Rational::Rational(int zn, int chis)
+{
+	chislitel = chis;
+	znum = zn;
+}
+
+bool Rational::operator==(const Rational& x) const
+
+{
+	
+return chislitel * x.znum == znum * x.chislitel;
+
+}
+
+void Rational::Print() {
+	cout << chislitel << "/" << znum << endl;
+}
+
+int main()
+{
+	Rational a(3, 5), b(6, 3), c;
+
+	if (a == b) {
+		cout << "Drobi ravni" << endl;
+	}
+	else
+	{
+		cout << "Drobi ne ravni" << endl;
+
+	}
+	return 0;
+}
